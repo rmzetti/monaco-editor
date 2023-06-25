@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Monaco editor no loader</title>
+<link rel="stylesheet" data-name="vs/editor/editor.main" href="lib/editor.main.min.css">
+</head>
+<body style="background-color: #1e1e1e;height:580px">
+<div id="container" style="top:0;left:0;width:100%;height:100%;border:0px solid black;"></div>
+<script>var require = { paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs' } }</script>
+<script src="lib/loader.min.js"></script>
+<script src="lib/editor.main.nls.min.js"></script>
+<script src="lib/editor.main.js"></script>
+<script>
+monaco.editor.create(document.getElementById('container'), {
+  value: `function x() {  console.log("Hello world 3!");}`,
+  language: 'javascript',
+  theme: 'vs-dark',
+});
+monaco.editor.getModels()[0].setValue('// some value\nconsole.log("Hello world 3!");\n// another line')
+</script>
+</body>
+</html>
